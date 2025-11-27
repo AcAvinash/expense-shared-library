@@ -53,7 +53,7 @@ def call(Map configMap){
                     nexusArtifactUploader(
                         nexusVersion: 'nexus3',
                         protocol: 'http',
-                        nexusUrl: '172.31.79.110:8081/',
+                        nexusUrl: '172.31.79.110:8081',
                         groupId: 'com.expense',
                         version: "$packageVersion",
                         repository: "${component}",
