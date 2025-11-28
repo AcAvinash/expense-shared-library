@@ -53,6 +53,18 @@ def call(Map configMap){
                     )
                 }
             }
+            stage('Prepare frontend code') {
+                steps {
+                    sh '''
+
+                    echo "Preparing frontend build context..."
+                    rm -rf code
+                    mkdir -p code
+                     cp -r index.html static nginx.conf code/ 
+                    '''
+                }
+            }
+
 
             stage('Docker Build') {
                 steps {
