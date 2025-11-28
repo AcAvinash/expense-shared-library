@@ -60,7 +60,7 @@ def call(Map configMap){
                     echo "Preparing frontend build context..."
                     rm -rf code
                     mkdir -p code
-                     cp -r index.html static nginx.conf code/ 
+                     cp -r /usr/share/nginx/html/ code 
                     '''
                 }
             }
