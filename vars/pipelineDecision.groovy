@@ -8,9 +8,9 @@ def decidePipleine(Map configMap){
             echo "application is Node JS and VM based"
             nodeJSVMCI(configMap)
             break
-        case 'nodeJSEKS':
+        case 'nodeFREKS':
             echo "application is Node JS and VM based"
-            nodeJSEKS(configMap)
+            nodeFREKS(configMap)
             break
         case 'JavaVM':
             javaVMCI(configMap)
