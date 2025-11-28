@@ -35,12 +35,12 @@ def call(Map configMap){
             //         echo "Sonar scan done"
             //     }
             // }
-            stage('Build') {
-                steps {
-                    sh 'ls -ltr'
-                    sh "zip -r ${component}.zip ./* --exclude=.git --exclude=.zip"
-                }
-            }
+            // stage('Build') {
+            //     steps {
+            //         sh 'ls -ltr'
+            //         sh "zip -r ${component}.zip ./* --exclude=.git --exclude=.zip"
+            //     }
+            // }
             stage('SAST') {
                 steps {
                     echo "SAST Done"
@@ -48,25 +48,25 @@ def call(Map configMap){
                 }
             }
             //install pipeline utility steps plugin, if not installed
-            stage('Publish Artifact') {
-                steps {
-                    nexusArtifactUploader(
-                        nexusVersion: 'nexus3',
-                        protocol: 'http',
-                        nexusUrl: 'jenkins.joindevops.fun:8081',
-                        groupId: 'com.expense',
-                        version: "$packageVersion",
-                        repository: "${component}",
-                        credentialsId: 'nexus-auth',
-                        artifacts: [
-                            [artifactId: "${component}",
-                            classifier: '',
-                            file: "${component}.zip",
-                            type: 'zip']
-                        ]
-                    )
-                }
-            }
+            // stage('Publish Artifact') {
+            //     steps {
+            //         nexusArtifactUploader(
+            //             nexusVersion: 'nexus3',
+            //             protocol: 'http',
+            //             nexusUrl: 'jenkins.joindevops.fun:8081',
+            //             groupId: 'com.expense',
+            //             version: "$packageVersion",
+            //             repository: "${component}",
+            //             credentialsId: 'nexus-auth',
+            //             artifacts: [
+            //                 [artifactId: "${component}",
+            //                 classifier: '',
+            //                 file: "${component}.zip",
+            //                 type: 'zip']
+            //             ]
+            //         )
+            //     }
+            // }
 
             stage('Docker Build') {
                 steps {
